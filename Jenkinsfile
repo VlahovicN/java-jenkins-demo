@@ -28,7 +28,8 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t java-demo-app .'
+                // 🔧 IZMENJENO: pokušaj sa sudo, ako ne može, fallback na običan docker (ako user ima prava)
+                sh 'sudo docker build -t java-demo-app . || docker build -t java-demo-app .'
             }
         }
     }
