@@ -1,10 +1,6 @@
 pipeline {
-agent {
-    docker {
-        image 'maven:3.8.6-openjdk-17'
-        args '-u root:root -v /var/run/docker.sock:/var/run/docker.sock'
-    }
-}
+    agent any
+
     tools {
         maven 'maven-3.9'
         jdk 'OpenJDK 17'
